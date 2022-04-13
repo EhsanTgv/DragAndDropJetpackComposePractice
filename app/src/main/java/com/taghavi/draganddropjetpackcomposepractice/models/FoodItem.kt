@@ -1,6 +1,7 @@
-package com.taghavi.draganddropjetpackcomposepractice
+package com.taghavi.draganddropjetpackcomposepractice.models
 
 import androidx.annotation.DrawableRes
+import com.taghavi.draganddropjetpackcomposepractice.R
 
 data class FoodItem(
     val id: Int,
