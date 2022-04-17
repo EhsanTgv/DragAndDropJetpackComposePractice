@@ -88,9 +88,8 @@ fun <T> DragTarget(
 @Composable
 fun <T> DropTarget(
     modifier: Modifier,
-    content: @Composable() (BoxScope.(isInBound: Boolean, data: T?) -> Unit)
+    content: @Composable (BoxScope.(isInBound: Boolean, data: T?) -> Unit)
 ) {
-
     val dragInfo = LocalDragTargetInfo.current
     val dragPosition = dragInfo.dragPosition
     val dragOffset = dragInfo.dragOffset
