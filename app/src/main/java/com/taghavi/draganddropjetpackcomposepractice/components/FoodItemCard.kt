@@ -15,6 +15,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.taghavi.draganddropjetpackcomposepractice.DragTarget
 import com.taghavi.draganddropjetpackcomposepractice.models.FoodItem
 
 @Composable
@@ -29,14 +30,16 @@ fun FoodItemCard(foodItem: FoodItem) {
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(10.dp),
         ) {
-            Image(
-                painter = painterResource(id = foodItem.image),
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier
-                    .size(130.dp)
-                    .clip(RoundedCornerShape(16.dp))
-            )
+            DragTarget(modifier = Modifier.size(130.dp), dataToDrop = foodItem) {
+                Image(
+                    painter = painterResource(id = foodItem.image),
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .size(130.dp)
+                        .clip(RoundedCornerShape(16.dp))
+                )
+            }
             Spacer(modifier = Modifier.width(20.dp))
             Column(modifier = Modifier.weight(1f)) {
                 Text(text = foodItem.name, fontSize = 22.sp, color = Color.DarkGray)

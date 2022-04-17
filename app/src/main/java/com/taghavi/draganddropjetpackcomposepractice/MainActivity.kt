@@ -32,13 +32,16 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    LazyColumn(
-                        modifier = Modifier.fillMaxSize(),
-                        contentPadding = PaddingValues(horizontal = 10.dp)
-                    ) {
-                        items(items = foodList) { food ->
-                            FoodItemCard(foodItem = food)
+                    LongPressDraggable(modifier = Modifier.fillMaxSize()) {
+                        LazyColumn(
+                            modifier = Modifier.fillMaxSize(),
+                            contentPadding = PaddingValues(horizontal = 10.dp)
+                        ) {
+                            items(items = foodList) { food ->
+                                FoodItemCard(foodItem = food)
+                            }
                         }
+                        PersonListContainer()
                     }
                 }
             }
@@ -66,5 +69,4 @@ fun BoxScope.PersonListContainer() {
             PersonCard(person)
         }
     }
-
 }
